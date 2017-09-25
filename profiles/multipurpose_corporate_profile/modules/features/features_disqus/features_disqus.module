@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Features disqus feature.
+ */
+
+include_once 'features_disqus.features.inc';

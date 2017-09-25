@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Features owl carousel variables feature.
+ */
+
+include_once 'features_owl_carousel_variables.features.inc';

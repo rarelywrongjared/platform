@@ -1,0 +1,11 @@
+name = Cache Object API
+description = Provides a cache class exposing hooks operating on objects before they are stored to and after they were received from the cache.
+core = 7.x
+files[] = cacheobject.inc
+
+; Information added by Drupal.org packaging script on 2014-04-17
+version = "7.x-1.0-beta1"
+core = "7.x"
+project = "cacheobject"
+datestamp = "1397723059"
+

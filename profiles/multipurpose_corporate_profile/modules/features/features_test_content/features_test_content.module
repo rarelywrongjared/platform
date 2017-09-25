@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Features test content feature.
+ */
+
+include_once 'features_test_content.features.inc';

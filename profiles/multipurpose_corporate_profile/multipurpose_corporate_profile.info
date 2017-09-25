@@ -1,0 +1,112 @@
+; Packaging information for corporate_profile
+name = "The Multipurpose Corporate Profile"
+description = "Created by ADCI Solutions."
+core = "7.x"
+; ----------
+; Dependencies
+; ----------
+; Administration
+dependencies[] = admin_devel
+dependencies[] = admin_menu
+dependencies[] = admin_menu_toolbar
+; Chaos tool suite
+dependencies[] = ctools
+; Context
+dependencies[] = context
+dependencies[] = context_layouts
+dependencies[] = context_ui
+; Core
+dependencies[] = block
+dependencies[] = color
+dependencies[] = comment
+dependencies[] = contextual
+dependencies[] = dashboard
+dependencies[] = dblog
+dependencies[] = field
+dependencies[] = field_sql_storage
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = filter
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = node
+dependencies[] = number
+dependencies[] = options
+dependencies[] = overlay
+dependencies[] = path
+dependencies[] = rdf
+dependencies[] = search
+dependencies[] = shortcut
+dependencies[] = system
+dependencies[] = taxonomy
+dependencies[] = text
+dependencies[] = update
+dependencies[] = user
+; Development
+dependencies[] = profiler_builder
+; Features extra
+dependencies[] = fe_block
+; Map
+dependencies[] = colorized_gmap
+; Node export
+dependencies[] = node_export
+dependencies[] = node_export_features
+; Other
+dependencies[] = delta
+dependencies[] = menu_block
+dependencies[] = backup_migrate
+dependencies[] = block_class
+dependencies[] = disqus
+dependencies[] = entity
+dependencies[] = entity_token
+dependencies[] = instagram_block
+dependencies[] = libraries
+dependencies[] = pathauto
+dependencies[] = strongarm
+dependencies[] = token
+; Owl Carousel
+dependencies[] = owlcarousel
+dependencies[] = owlcarousel_ui
+dependencies[] = owlcarousel_views
+; UUID
+dependencies[] = uuid
+dependencies[] = uuid_path
+; User interface
+dependencies[] = jquery_update
+dependencies[] = superfish
+; Variable
+dependencies[] = variable
+; Views
+dependencies[] = views
+dependencies[] = views_slideshow
+dependencies[] = views_slideshow_cycle
+dependencies[] = views_ui
+; Webform
+dependencies[] = webform
+; Features
+dependencies[] = features
+dependencies[] = uuid_features
+dependencies[] = features_text_formats
+dependencies[] = features_image_style
+dependencies[] = features_theme_variables
+dependencies[] = features_variables
+dependencies[] = features_owl_carousel_variables
+dependencies[] = features_general_content
+dependencies[] = features_test_content
+dependencies[] = features_disqus
+dependencies[] = features_gmap
+dependencies[] = features_views
+dependencies[] = features_permissions
+dependencies[] = features_context
+dependencies[] = features_ckeditor
+
+
+
+; Information added by Drupal.org packaging script on 2016-10-14
+version = "7.x-1.10"
+core = "7.x"
+project = "multipurpose_corporate_profile"
+datestamp = "1476433840"
+

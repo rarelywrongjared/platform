@@ -1,0 +1,28 @@
+name = Features views
+core = 7.x
+package = Features
+version = 7.x-1.8
+project = multipurpose_corporate_profile
+dependencies[] = owlcarousel_views
+dependencies[] = views
+datestamp = 1463460026
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = blog
+features[views_view][] = clients_slider
+features[views_view][] = dignities
+features[views_view][] = main_slider
+features[views_view][] = our_amazing_team
+features[views_view][] = popular_tags
+features[views_view][] = portfolio
+features[views_view][] = portfolio_terms
+features[views_view][] = recent_news
+features[views_view][] = secondary_slider
+features_exclude[dependencies][ctools] = ctools
+
+; Information added by Drupal.org packaging script on 2016-10-14
+version = "7.x-1.10"
+core = "7.x"
+project = "multipurpose_corporate_profile"
+datestamp = "1476433840"
+

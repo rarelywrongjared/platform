@@ -1,0 +1,34 @@
+name = Features menu
+core = 7.x
+package = Features
+dependencies[] = features
+dependencies[] = menu
+dependencies[] = responsive_menus
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[menu_custom][] = main-menu
+features[menu_links][] = main-menu_about-us:node/3
+features[menu_links][] = main-menu_blog:blog
+features[menu_links][] = main-menu_column-3:portfolio/column_three
+features[menu_links][] = main-menu_column-4:portfolio/column_four
+features[menu_links][] = main-menu_home:<front>
+features[menu_links][] = main-menu_pages:<front>
+features[menu_links][] = main-menu_portfolio:portfolio
+features[variable][] = responsive_menus_css_selectors
+features[variable][] = responsive_menus_disable_mouse_events
+features[variable][] = responsive_menus_ignore_admin
+features[variable][] = responsive_menus_media_size
+features[variable][] = responsive_menus_no_jquery_update
+features[variable][] = responsive_menus_remove_attributes
+features[variable][] = responsive_menus_simple_absolute
+features[variable][] = responsive_menus_simple_text
+features[variable][] = responsive_menus_style
+features_exclude[dependencies][ctools] = ctools
+features_exclude[dependencies][strongarm] = strongarm
+
+; Information added by Drupal.org packaging script on 2016-10-14
+version = "7.x-1.10"
+core = "7.x"
+project = "multipurpose_corporate_profile"
+datestamp = "1476433840"
+

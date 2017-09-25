@@ -1,0 +1,16 @@
+<?php
+/**
+ * @file
+ * Code for the Features views feature.
+ */
+
+include_once 'features_views.features.inc';
+
+/**
+ * Implements hook_init().
+ */
+function features_views_init() {
+  $view = views_get_view('secondary_slider');
+  $view->save();
+}
+

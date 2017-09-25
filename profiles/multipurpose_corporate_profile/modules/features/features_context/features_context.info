@@ -1,0 +1,27 @@
+name = Features context
+core = 7.x
+package = Features
+dependencies[] = addtoany
+dependencies[] = colorized_gmap
+dependencies[] = context
+dependencies[] = ctools
+dependencies[] = delta_blocks
+dependencies[] = disqus
+dependencies[] = instagram_block
+dependencies[] = superfish
+dependencies[] = views
+features[context][] = about_us
+features[context][] = blog
+features[context][] = contact_us
+features[context][] = delta_page_title
+features[context][] = front_page
+features[context][] = general
+features[ctools][] = context:context:3
+features[features_api][] = api:2
+
+; Information added by Drupal.org packaging script on 2016-10-14
+version = "7.x-1.10"
+core = "7.x"
+project = "multipurpose_corporate_profile"
+datestamp = "1476433840"
+

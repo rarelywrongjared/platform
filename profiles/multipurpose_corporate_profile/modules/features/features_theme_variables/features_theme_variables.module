@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the features_theme_variables feature.
+ */
+
+include_once 'features_theme_variables.features.inc';

@@ -1,0 +1,14 @@
+name = Features gmap
+core = 7.x
+package = Features
+dependencies[] = colorized_gmap
+dependencies[] = entity
+features[colorized_gmap][] = colorized_gmap_1428982285
+features[features_api][] = api:2
+
+; Information added by Drupal.org packaging script on 2016-10-14
+version = "7.x-1.10"
+core = "7.x"
+project = "multipurpose_corporate_profile"
+datestamp = "1476433840"
+
