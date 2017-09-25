@@ -1,0 +1,11 @@
+name = SoundCloud
+description = The SoundCloud module wraps the SoundCloud OAuth connect and revoke functionality in a Drupal module.
+core = 7.x
+package = SoundCloud
+
+; Information added by Drupal.org packaging script on 2014-03-01
+version = "7.x-1.0"
+core = "7.x"
+project = "soundcloud"
+datestamp = "1393697314"
+

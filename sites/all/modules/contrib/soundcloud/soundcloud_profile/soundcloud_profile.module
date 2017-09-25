@@ -1,0 +1,172 @@
+<?php
+/**
+ * @file
+ *
+ *
+ *
+ * This module provides profile information about the users SoundCloud profile.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function soundcloud_profile_menu() {
+  $items = array();
+
+  // SoundCloud tab.
+  $items['user/%user/soundcloud'] = array(
+    'title' => 'SoundCloud',
+    'description' => 'SoundCloud profile',
+    'page callback' => 'soundcloud_profile_user_page',
+    'page arguments' => array(1),
+    'access callback' => 'soundcloud_profile_user_access',
+    'access arguments' => array(1),
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function soundcloud_profile_form_soundcloud_settings_alter(&$form, &$form_state) {
+  // Add some more configuration options.
+  if (isset($form['soundcloud'])) {
+    $form['soundcloud_profile'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('SoundCloud profile settings'),
+      '#collapsible' => FALSE,
+      '#collapsed' => FALSE,
+    );
+
+    $form['soundcloud_profile']['soundcloud_profile_html5'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Use HTML5 player (recommended)'),
+      '#default_value' => variable_get('soundcloud_profile_html5', 1),
+      '#description' => t('Use HTML5 player instead of flash player on the SoundCloud profile page.'),
+    );
+  }
+}
+
+/**
+ * Check which user is logged in.
+ */
+function soundcloud_profile_user_access($account) {
+  global $user;
+  if ($user->uid === $account->uid) {
+    return TRUE;
+  }
+  return FALSE;
+}
+
+/**
+ * Profile page callback.
+ */
+function soundcloud_profile_user_page($account) {
+  $output = '';
+
+  if (soundcloud_check_token($account->uid)) {
+    if (soundcloud_view_profile_permission($account->uid)) {
+      if (!isset($account->content['soundcloud'])) {
+        $account->content['soundcloud'] = array(
+          '#type' => 'user_profile_category',
+          '#title' => t('SoundCloud'),
+          '#attributes' => array('class' => array('user-member')),
+          '#weight' => 5,
+        );
+      }
+
+      $profile = soundcloud_me($account->uid);
+      $output = theme('soundcloud_profile', array('profile' => $profile));
+
+      $account->content['soundcloud']['profile'] = array(
+        '#type' => 'user_profile_item',
+        '#title' => '',
+        '#markup' => $output,
+        '#weight' => 1,
+      );
+    }
+    else {
+      $output = t('You do not have permission to view this profile. Contact your administrator.');
+    }
+  }
+  else {
+    $output = t('You are not connected to SoundCloud. Please do so on your user profile: !url', array('!url' => l('user profile', 'user')));
+  }
+
+  return $output;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function soundcloud_profile_theme($existing, $type, $theme, $path) {
+  return array(
+    'soundcloud_profile' => array(
+      'variables' => array(
+        'profile' => NULL,
+      ),
+    ),
+    'recent_tracks' => array(
+      'variables' => array(
+        'username' => NULL,
+        'id' => NULL,
+      ),
+    ),
+    'dropbox' => array(
+      'variables' => array(
+        'username' => NULL,
+      ),
+    )
+  );
+}
+
+/**
+ * Theme function generating the user profile.
+ */
+function theme_soundcloud_profile($variables) {
+  $profile = $variables['profile'];
+  $output = '<div id="soundcloud-profile">';
+  $output .= '<h3>' . t('SoundCloud Profile of !username', array('!username' => l($profile['username'], $profile['permalink_url'], array('attributes' => array('target' => '_blank'))))) . '</h3>';
+  $output .= theme('dropbox', array('username' => $profile['permalink']));
+  $output .= theme('recent_tracks', array('username' => $profile['permalink'], 'id' => $profile['id']));
+  $output .= '</div>';
+  return $output;  
+}
+
+/**
+ * Theming funtion to create the latest track player from SoundCloud.
+ */
+function theme_recent_tracks($variables) {
+  $username = $variables['username'];
+  $id = $variables['id'];
+
+  $output  = '<h3>Latest tracks</h3>';
+  if (variable_get('soundcloud_profile_html5', 1)) {
+    $output .= '<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?visual=true&url=http%3A%2F%2Fapi.soundcloud.com%2Fusers%2F' . $id . '&show_artwork=true"></iframe>';
+  }
+  else {
+    $output .= '<object width="100%" height="225">';
+    $output .= '<param value="http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fsoundcloud.com%2F' . $username . '" name="movie">';
+    $output .= '<param value="always" name="allowscriptaccess">';
+    $output .= '<embed width="100%" height="225" type="application/x-shockwave-flash" src="http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fsoundcloud.com%2F' . $username . '" allowscriptaccess="always">';
+    $output .= '</object>';
+  }
+  return $output;
+}
+
+/**
+ * Theming function to create a dropbox icon on the user profile.
+ */
+function theme_dropbox($variables) {
+  $username = $variables['username'];
+  drupal_add_css('a.soundcloud-dropbox:hover {color: #1896D1 !important; background-color: transparent !important;}*html a.soundcloud-dropbox {background-image: none !important; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="(http://a1.sndcdn.com/images/dropbox_small_white.png?435a760)", sizingMethod="crop") !important;}', array(
+    'type' => 'inline',
+    'group' => CSS_DEFAULT,
+    'every_page' => TRUE,
+    'preprocess' => FALSE,
+  ));
+  $output = '<a href="http://soundcloud.com/' . $username . '/dropbox" style="display: block; margin: 10px auto; background: transparent url(http://a1.sndcdn.com/images/dropbox_small_white.png?435a760) top left no-repeat; color: #888888; font-size: 10px; height: 30px; padding: 26px 60px 0 12px; width: 127px; text-decoration: none; font-family: "Lucida Grande", Helvetica, Arial, sans-serif; line-height: 1.3em" class="soundcloud-dropbox">Send me your sounds</a>';
+  return $output;
+}
