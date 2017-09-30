@@ -28,7 +28,7 @@ function twitter_block_schema() {
       'widget_id' => array(
         'type' => 'varchar',
         'length' => 128,
-        'not null' => TRUE,
+        'not null' => FALSE,
         'default' => '',
         'description' => 'Widget ID.',
       ),
@@ -48,8 +48,7 @@ function twitter_block_schema() {
       ),
     ),
     'unique keys' => array(
-      'info' => array('info'),
-      'widget_id' => array('widget_id'),
+      'info' => array('info')
     ),
     'primary key' => array('bid'),
   );
@@ -118,4 +117,12 @@ function twitter_block_update_7201() {
     'default' => '',
     'description' => 'Account username.',
   ));
+}
+
+
+/**
+ * Remove Widget ID unique key.
+ */
+function twitter_block_update_7202() {
+  db_drop_unique_key('twitter_block', 'widget_id');
 }

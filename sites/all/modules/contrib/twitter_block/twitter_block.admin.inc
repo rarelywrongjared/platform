@@ -63,10 +63,12 @@ function twitter_block_add_block_form_validate($form, &$form_state) {
     form_set_error('info', t('Ensure that each block description is unique.'));
   }
 
-  $unique_widget_id = (bool) db_query_range('SELECT 1 FROM {twitter_block} WHERE widget_id = :widget_id', 0, 1, array(':widget_id' => $form_state['values']['widget_id']))->fetchField();
+  if (!empty($form_state['values']['widget_id'])) {
+    $unique_widget_id = (bool) db_query_range('SELECT 1 FROM {twitter_block} WHERE widget_id = :widget_id', 0, 1, array(':widget_id' => $form_state['values']['widget_id']))->fetchField();
 
-  if (empty($form_state['values']['widget_id']) || $unique_widget_id) {
-    form_set_error('widget_id', t('Ensure that each block widget ID is unique.'));
+    if ($unique_widget_id) {
+      form_set_error('widget_id', t('Ensure that each block widget ID is unique.'));
+    }
   }
 }
 

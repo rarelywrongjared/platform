@@ -1,0 +1,101 @@
+diff --git a/twitter_block.admin.inc b/twitter_block.admin.inc
+index 3e67da2..f2e7597 100644
+--- a/twitter_block.admin.inc
++++ b/twitter_block.admin.inc
+@@ -63,10 +63,12 @@ function twitter_block_add_block_form_validate($form, &$form_state) {
+     form_set_error('info', t('Ensure that each block description is unique.'));
+   }
+ 
+-  $unique_widget_id = (bool) db_query_range('SELECT 1 FROM {twitter_block} WHERE widget_id = :widget_id', 0, 1, array(':widget_id' => $form_state['values']['widget_id']))->fetchField();
++  if (!empty($form_state['values']['widget_id'])) {
++    $unique_widget_id = (bool) db_query_range('SELECT 1 FROM {twitter_block} WHERE widget_id = :widget_id', 0, 1, array(':widget_id' => $form_state['values']['widget_id']))->fetchField();
+ 
+-  if (empty($form_state['values']['widget_id']) || $unique_widget_id) {
+-    form_set_error('widget_id', t('Ensure that each block widget ID is unique.'));
++    if ($unique_widget_id) {
++      form_set_error('widget_id', t('Ensure that each block widget ID is unique.'));
++    }
+   }
+ }
+ 
+diff --git a/twitter_block.install b/twitter_block.install
+index 9c96918..748228b 100644
+--- a/twitter_block.install
++++ b/twitter_block.install
+@@ -28,7 +28,7 @@ function twitter_block_schema() {
+       'widget_id' => array(
+         'type' => 'varchar',
+         'length' => 128,
+-        'not null' => TRUE,
++        'not null' => FALSE,
+         'default' => '',
+         'description' => 'Widget ID.',
+       ),
+@@ -48,8 +48,7 @@ function twitter_block_schema() {
+       ),
+     ),
+     'unique keys' => array(
+-      'info' => array('info'),
+-      'widget_id' => array('widget_id'),
++      'info' => array('info')
+     ),
+     'primary key' => array('bid'),
+   );
+@@ -119,3 +118,11 @@ function twitter_block_update_7201() {
+     'description' => 'Account username.',
+   ));
+ }
++
++
++/**
++ * Remove Widget ID unique key.
++ */
++function twitter_block_update_7202() {
++  db_drop_unique_key('twitter_block', 'widget_id');
++}
+diff --git a/twitter_block.module b/twitter_block.module
+index c7e349e..5117655 100644
+--- a/twitter_block.module
++++ b/twitter_block.module
+@@ -222,7 +222,7 @@ function twitter_block_custom_block_form($edit = array()) {
+     '#type' => 'textfield',
+     '#title' => t('Widget ID'),
+     '#default_value' => $edit['widget_id'],
+-    '#required' => TRUE,
++    '#required' => FALSE,
+     '#description' => t('Each Twitter Block block requires a unique widget ID which determines, among other things, the source (user timeline, favourites, list or search) of the tweets to display. You can view a list of your existing embedded timeline widgets (and their widget IDs) or create new embedded timeline widgets by visiting the <a href="@widgets_section">widgets section of your settings page</a> (make sure that you\'re logged in). You can determine a widget\'s ID by editing it and inspecting the URL (which should be in the form of twitter.com/settings/widgets/WIDGET_ID/edit) or by looking at the widget\'s embed code (look for data-widget-id="WIDGET_ID").', array('@widgets_section' => 'https://twitter.com/settings/widgets')),
+   );
+   $form['username'] = array(
+@@ -423,13 +423,16 @@ function twitter_block_block_view($delta) {
+     '#href' => 'https://twitter.com/' . $config['username'],
+     '#options' => array(
+       'attributes' => array(
+-        'class' => array('twitter-timeline'),
+-        'data-widget-id' => $config['widget_id'],
++        'class' => array('twitter-timeline')
+       ),
+       'html' => FALSE,
+     ),
+   );
+ 
++  if (!empty($config['widget_id'])) {
++    $block['content']['#options']['attributes']['data-widget-id'] = $config['widget_id'];
++  }
++
+   // Use a locally cached copy of widgets.js by default.
+   if (variable_get('twitter_block_cache', 0) && $url = twitter_block_cache()) {
+     $block['content']['#attached']['js'] = array(
+@@ -457,11 +460,11 @@ function twitter_block_block_view($delta) {
+   }
+ 
+   if (!empty($data['width'])) {
+-    $block['content']['#options']['attributes']['width'] = $data['width'];
++    $block['content']['#options']['attributes']['data-width'] = $data['width'];
+   }
+ 
+   if (!empty($data['height'])) {
+-    $block['content']['#options']['attributes']['height'] = $data['height'];
++    $block['content']['#options']['attributes']['data-height'] = $data['height'];
+   }
+ 
+   if (!empty($data['chrome'])) {
