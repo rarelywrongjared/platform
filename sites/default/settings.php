@@ -2,22 +2,22 @@
 
 $site_name = basename(__DIR__);
 
-//$conf['cache_backends'][] = 'sites/all/modules/contrib/memcache/memcache.inc';
-//$conf['memcache_key_prefix'] = $site_name . '_';
+$conf['cache_backends'][] = 'sites/all/modules/contrib/memcache/memcache.inc';
+$conf['memcache_key_prefix'] = $site_name . '_';
 
 
-//$conf['cache_backends'][] = 'sites/all/modules/contrib/cacheobject/cacheobject.inc';
-//$conf['cache_backends'][] = 'sites/all/modules/contrib/authcache/authcache.cache.inc';
-//$conf['cache_backends'][] = 'sites/all/modules/contrib/authcache/modules/authcache_builtin/authcache_builtin.cache.inc';
+$conf['cache_backends'][] = 'sites/all/modules/contrib/cacheobject/cacheobject.inc';
+$conf['cache_backends'][] = 'sites/all/modules/contrib/authcache/authcache.cache.inc';
+$conf['cache_backends'][] = 'sites/all/modules/contrib/authcache/modules/authcache_builtin/authcache_builtin.cache.inc';
 
-//$conf['cache_class_cache_form'] = 'CacheObjectAPIWrapper';
-//$conf['cacheobject_class_cache_form'] = 'MemCacheDrupal';
-//$conf['authcache_builtin_cache_without_database'] = TRUE;
-//$conf['cache_class_cache_page'] = 'MemCacheDrupal';
-//$conf['cache_class_cache_authcache_key'] = 'MemCacheDrupal';
-//$conf['cache_class_cache_bootstrap'] = 'MemCacheDrupal';
-//$conf['authcache_builtin_cache_without_database'] = TRUE;
-//$conf['authcache_p13n_frontcontroller_path'] = 'authcache.php';
+$conf['cache_class_cache_form'] = 'CacheObjectAPIWrapper';
+$conf['cacheobject_class_cache_form'] = 'MemCacheDrupal';
+$conf['authcache_builtin_cache_without_database'] = TRUE;
+$conf['cache_class_cache_page'] = 'MemCacheDrupal';
+$conf['cache_class_cache_authcache_key'] = 'MemCacheDrupal';
+$conf['cache_class_cache_bootstrap'] = 'MemCacheDrupal';
+$conf['authcache_builtin_cache_without_database'] = TRUE;
+$conf['authcache_p13n_frontcontroller_path'] = 'authcache.php';
 
 
   //advagg bundler settings
