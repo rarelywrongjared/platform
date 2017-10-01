@@ -34,7 +34,6 @@
   color: #000;
 }
 #superfish-1 .sf-depth-1 > ul {
-  display: none;
   position: absolute;
   padding: 10px 0 !important;
   width: auto !important;
@@ -46,9 +45,6 @@
   -webkit-box-shadow: inset 0px 0px 0px 1px rgba(232,232,232,1);
   -moz-box-shadow: inset 0px 0px 0px 1px rgba(232,232,232,1);
   box-shadow: inset 0px 0px 0px 1px rgba(232,232,232,1);
-}
-#superfish-1 .sf-depth-1:hover > ul {
-  display: block;
 }
 #superfish-1 .sf-depth-2 > a {
   padding: 10px 20px;

@@ -93,11 +93,6 @@ function adaptivetheme_subtheme_process_block(&$vars) {
 }
 // */
 
-function multipurpose_corporate_theme_block_view_alter(&$data, $block) {
-  if ($block->module == 'superfish' && $block->delta == 2) {
-    $data['subject'] = 'Links';
-  }
-}
 
 /**
  * Preprocesses the wrapping HTML.

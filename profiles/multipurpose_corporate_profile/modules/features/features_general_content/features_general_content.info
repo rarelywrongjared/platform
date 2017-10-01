@@ -195,9 +195,9 @@ features[variable][] = node_submitted_secondary_slider
 features[variable][] = node_submitted_team_member
 features[variable][] = node_submitted_webform
 
-; Information added by Drupal.org packaging script on 2016-10-14
-version = "7.x-1.10"
+; Information added by Drupal.org packaging script on 2017-09-26
+version = "7.x-1.11"
 core = "7.x"
 project = "multipurpose_corporate_profile"
-datestamp = "1476433840"
+datestamp = "1506405263"
 

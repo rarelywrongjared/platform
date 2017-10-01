@@ -392,21 +392,10 @@ label {
 .view-portfolio-terms a {
   margin-right: 7px;
 }
-.view-portfolio-terms {
-  position: relative;
-}
-.view-portfolio-terms .view-header {
-  position: absolute;
-}
 #page .item-list .pager li {
   padding-left: 0;
   margin-left: 10px;
   margin-bottom: 10px;
-}
-.view-portfolio-terms .view-content:before {
-  display: inline-block;
-  width: 45px;
-  height: 20px;
 }
 #page .field-name-field-portfolio-terms ul,
 #page .field-name-field-portfolio-terms ul li {
@@ -1705,10 +1694,10 @@ body.front .view-main-slider .view-content,
   padding: 0 10px;
   text-align: center;
 }
-.view-portfolio-column-three > .view-content > .views-row {
+.page-portfolio-column-three .view-portfolio > .view-content > .views-row {
   width: 33%;
 }
- .view-portfolio-column-four > .view-content > .views-row {
+.page-portfolio-column-four .view-portfolio > .view-content > .views-row {
   width: 24.65%;
 }
 .portfolio-content-wrapper {
@@ -1829,16 +1818,3 @@ body.section-contact-us {
 /* Contact us page END */
 
 /*----- =Slice END -----*/
-
-/*------- RTL text fixes -------------*/
-
-.owl-carousel .owl-wrapper,
-.owl-carousel .owl-item {
-  float: left;
-}
-
-/*------- RTL text fixes END -------------*/
-
-.sf-menu-extended {
-  padding-bottom: 20%;
-}

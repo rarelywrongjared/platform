@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Profile statistic usage client module.
+ *
+ * Sends site url, name and profile name to improve distribution quality.
+ * Developed by ADCI Solutions.
+ */
+
+require_once drupal_get_path('module', 'profile_stat_sender') . '/includes/profile_stat_sender.common.inc';
+
+/**
+ * Implements hook_cron().
+ */
+function profile_stat_sender_cron() {
+  profile_stat_sender_send_data();
+}

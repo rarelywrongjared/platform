@@ -4,7 +4,7 @@ api = "2"
 
 ; Modules
 projects[addtoany][subdir] = "contrib"
-projects[addtoany][version] = "4.13"
+projects[addtoany][version] = "4.14"
 
 projects[admin_menu][subdir] = "contrib"
 projects[admin_menu][version] = "3.0-rc5"
@@ -16,10 +16,10 @@ projects[block_class][subdir] = "contrib"
 projects[block_class][version] = "2.3"
 
 projects[ctools][subdir] = "contrib"
-projects[ctools][version] = "1.10"
+projects[ctools][version] = "1.12"
 
 projects[ckeditor][subdir] = "contrib"
-projects[ckeditor][version] = "1.17"
+projects[ckeditor][version] = "1.18"
 
 projects[colorized_gmap][subdir] = "contrib"
 projects[colorized_gmap][version] = "1.4"
@@ -67,7 +67,7 @@ projects[profiler_builder][subdir] = "contrib"
 projects[profiler_builder][version] = "1.2"
 
 projects[responsive_menus][subdir] = "contrib"
-projects[responsive_menus][version] = "1.5"
+projects[responsive_menus][version] = "1.6"
 
 projects[strongarm][subdir] = "contrib"
 projects[strongarm][version] = "2.0"
@@ -76,7 +76,7 @@ projects[superfish][subdir] = "contrib"
 projects[superfish][version] = "1.9"
 
 projects[token][subdir] = "contrib"
-projects[token][version] = "1.6"
+projects[token][version] = "1.7"
 
 projects[uuid][subdir] = "contrib"
 projects[uuid][version] = "1.0-beta2"
@@ -88,17 +88,19 @@ projects[variable][subdir] = "contrib"
 projects[variable][version] = "2.5"
 
 projects[views][subdir] = "contrib"
-projects[views][version] = "3.14"
+projects[views][version] = "3.18"
 
 projects[views_slideshow][subdir] = "contrib"
-projects[views_slideshow][version] = "3.1"
+projects[views_slideshow][version] = "3.9"
 
 projects[webform][subdir] = "contrib"
-projects[webform][version] = "4.14"
+projects[webform][version] = "4.15"
 
 ; Themes
 projects[adaptivetheme][version] = "3.4"
 projects[adaptivetheme][type] = "theme"
+projects[multipurpose_corporate_theme][version] = "1.1"
+projects[multipurpose_corporate_theme][type] = "theme"
 
 ; +++++ Libraries +++++
 

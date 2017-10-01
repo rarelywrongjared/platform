@@ -8,6 +8,31 @@
 if (!function_exists("system_form_install_configure_form_alter")) {
   function system_form_install_configure_form_alter(&$form, $form_state) {
     $form['site_information']['site_name']['#default_value'] = 'multipurpose_corporate_profile';
+
+    $form['additional_settings'] = array(
+      '#type' => 'fieldset',
+      '#title' => st('Additional settings'),
+      '#collapsible' => FALSE,
+    );
+    $form['additional_settings']['send_message'] = array(
+      '#type' => 'checkbox',
+      '#title' => 'Send info to developers team',
+      '#description' => st('Send reports to developers. We use anonymous data about your site (URL and site-name) to fix issues and ensure great user experience.'),
+      '#default_value' => TRUE,
+    );
+
+    $form['#submit'][] = 'system_form_install_configure_form_custom_submit';
+  }
+
+  /**
+   * Function system_form_install_configure_form_custom_submit().
+   */
+  function system_form_install_configure_form_custom_submit($form, &$form_state) {
+    if ($form_state['values']['send_message']) {
+      if (!module_exists('profile_stat_sender')) {
+        module_enable(array('profile_stat_sender'), FALSE);
+      }
+    }
   }
 }
 
@@ -169,4 +194,3 @@ function multipurpose_corporate_profile_recurse_copy($src, $dst) {
   }
   closedir($dir);
 }
-

@@ -69,12 +69,6 @@
     margin-top: -55px;
   }
 }
-@media (max-width: 768px) {
-  .sf-menu li:hover > ul, .sf-menu li.sfHover > ul {
-    left: 35%;
-    top: -100%;
-  }
-}
 
 @media (max-width: 1200px) {
 
@@ -155,32 +149,7 @@
 
   #block-superfish-1 {
     display: none;
-    margin-bottom: 5%;
-    width: 50%
   }
-
-  .sf-menu, .sf-menu li {
-    width: 20em;
-  }
-
-  .sf-menu li {
-    float: left;
-    position: relative;
-    z-index: 498;
-    display: block;
-    width: 100%;
-  }
-
-  .sf-menu a {
-    display: block;
-    position: relative;
-    height: 40px;
-    line-height: 40px;
-    padding: 0 1%;
-    text-transform: uppercase;
-
-  }
-
   #main-nav-check:checked + #menu, 
   #menu .sub-nav-check:checked + .sub-nav, 
   #main-nav-check:checked ~ .l-responsive-page-container, 
@@ -241,51 +210,6 @@
   #menu .sub-heading:before {
     content: none;
   }
-
-  .responsive-menus.responsified {
-    width: 100%;
-    padding-bottom: 10px;
-    vertical-align: middle;
-  }
-  .responsive-menus.responsified span.toggler, .responsive-menus.responsified.responsive-toggled span.toggler  {
-    position: absolute;
-    top: 20px;
-    left: 90%;
-    display: block;
-    background: #FFF;
-    color: #333;
-    box-shadow: none;
-    font-size: 2.3em;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    border-bottom: none;
-  }
-
-  .responsive-menus.responsified .responsive-menus-simple {
-    display: none;
-    width: 100%;
-    background: #fff;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
-    box-shadow: none;
-  }
-
-  .responsive-menus.responsified .responsive-menus-simple li a {
-    color: #333;
-    display: block;
-    padding: 1em 5%;
-    margin: 0;
-    text-align: left;
-    border-bottom: 1px solid #bbb;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-
-  #rm-removed div.contextual-links-wrapper {
-   display:none;
-  }
-
   /* Header END */
 
   /* Front page BEGIN */
@@ -554,9 +478,6 @@
 }
 
 @media (max-width: 579px) {
-  .responsive-menus.responsified span.toggler, .responsive-menus.responsified.responsive-toggled span.toggler {
-    left: 85%;
-  }
   #primary-menu-bar .menu a,
   #menu-bar .menu a,
   #superfish-1 .active-trail > a {

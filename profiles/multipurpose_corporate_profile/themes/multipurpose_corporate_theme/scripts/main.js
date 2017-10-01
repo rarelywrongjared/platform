@@ -8,10 +8,11 @@
         afterMove: mainSliderAMove, 
         addClassActive: true
       };
-     	for (var carousel in settings.owlcarousel) {
-          if( carousel.indexOf('owl-carousel-page') >= 0){
+      console.log(settings.owlcarousel);
+      for (var carousel in settings.owlcarousel) {
+        if (carousel == 'owl-carousel-page') {
           $.extend(true, settings.owlcarousel[carousel].settings, callbacks);
-	}
+        }
       }
 
       $sliderImg = $('.view-main-slider .views-field-field-background-image');
@@ -54,62 +55,47 @@
   // mobile menu
   Drupal.behaviors.mobileMenu = {
     attach : function(context, settings) {
-
-      var mobile_settings = function(elem) {
-        elem.removeClass('sf-horizontal');
-        elem.removeClass('sf-shadow');
-        elem.addClass('sf-vertical');
-      };
-
-      var desktop_settings = function(elem) {
-        elem.addClass('sf-horizontal');
-        elem.addClass('sf-shadow');
-        elem.removeClass('sf-vertical');
-      };
-
       $(document).click(function(event) {
-        var main_menu = $('#block-superfish-1');
         if($(event.target).is('.btn-mobile-menu')) {
-          if (!main_menu.is(':visible')) {
-            main_menu.show();
-          }
-          else {
-            main_menu.hide();
+            if($('#block-superfish-1').is(':visible')) {
+              $('#superfish-1').find('ul').removeClass('open').css('display', '');
+            }
+            $('#block-superfish-1').slideToggle();
+        } else if($(event.target).closest('#block-superfish-1').length) {
+          //script do nothing
+        } else {
+          if($('#block-superfish-1').is(":visible") && window.innerWidth <= 1024) {
+            $('#block-superfish-1').slideUp();
+            $('#superfish-1').find('ul').removeClass('open').css('display', '');
           }
         }
       });
 
-      var $sfMenu;
-      $sfMenu = $('#superfish-1');
-
-      if(window.innerWidth <= 1024) {
-        mobile_settings($sfMenu);
-      }
-      else {
-        desktop_settings($sfMenu);
-      }
-
-      window.onresize = function () {
-        if (window.innerWidth <= 1024) {
-          mobile_settings($sfMenu);
-        }
-        else {
-            desktop_settings($sfMenu);
-            $('#block-superfish-1').css('display', '');
-            $('#block-superfish-1').css('overflow', '');
-            $('#block-superfish-1').removeClass('sf-menu-extended');
-          }
-      }
-
-      $('#block-superfish-1 li').on('click', function(event) {
-        if (window.innerWidth < 768) {
+      $('#superfish-1 a').on('click', function(event) {
+        if(window.innerWidth <= 1024) {
+          var $menuItems = $(this).closest('ul').find('ul');
           var $submenu = $(this).closest('li').children('ul');
-          if ($submenu.length) {
-            $('#block-superfish-1').addClass('sf-menu-extended');
+
+          console.log($submenu.length);
+          console.log(!$submenu.hasClass('open'));
+          if($submenu.length && !$submenu.hasClass('open')) {
+            event.preventDefault();
+            event.stopPropagation();
+            $menuItems.not($submenu).removeClass('open').slideUp();
+            $submenu.addClass('open');
+          } else {
+            $(this).trigger('mouseover');
           }
         }
+        
       });
 
+      $(window).resize(function() {
+        if(window.innerWidth >= 1024) {
+          $('#block-superfish-1').css('display', '');
+          $('#block-superfish-1').css('overflow', '');
+        }
+      });
     }
   };
 
@@ -121,7 +107,7 @@
   };
 
   $( document ).ready(function() {
-    if (window.location.pathname == '/portfolio' || window.location.pathname == '/portfolio/column_three' || window.location.pathname == '/portfolio/column_four') {
+    if (window.location.pathname == '/portfolio') {
       $('.view-portfolio-terms .view-header a').addClass('active');
     }
     else {

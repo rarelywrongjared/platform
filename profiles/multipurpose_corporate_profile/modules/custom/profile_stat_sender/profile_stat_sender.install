@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * File with install/uninstall and enable/disable hooks.
+ */
+
+/**
+ * Implements hook_enable().
+ */
+function profile_stat_sender_enable() {
+  profile_stat_sender_send_data();
+}

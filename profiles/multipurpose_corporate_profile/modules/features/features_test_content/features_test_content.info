@@ -208,9 +208,9 @@ features_exclude[uuid_term][28999e48-25a0-4014-bf46-f7ec8afa87fd] = 28999e48-25a
 features_exclude[uuid_term][f7c33ae0-1835-4214-b255-f5cf97424c07] = f7c33ae0-1835-4214-b255-f5cf97424c07
 features_exclude[uuid_term][2b8a5dfd-03ad-4330-8032-b9aae87383ac] = 2b8a5dfd-03ad-4330-8032-b9aae87383ac
 
-; Information added by Drupal.org packaging script on 2016-10-14
-version = "7.x-1.10"
+; Information added by Drupal.org packaging script on 2017-09-26
+version = "7.x-1.11"
 core = "7.x"
 project = "multipurpose_corporate_profile"
-datestamp = "1476433840"
+datestamp = "1506405263"
 
