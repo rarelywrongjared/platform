@@ -23,12 +23,12 @@ $conf['authcache_p13n_frontcontroller_path'] = 'authcache.php';
   //advagg bundler settings
   $conf['advagg_bundler_active'] = 1;
   $conf['advagg_bundler_max_css'] = 1;
-  $conf['advagg_bundler_max_js'] = 1;
+ $conf['advagg_bundler_max_js'] = 1;
   $conf['advagg_bundler_grouping_logic'] = 0;
 
   //advagg css compression
-  $conf['advagg_css_compressor'] = 2;
-  $conf['advagg_css_compress_inline'] = 2;
+//  $conf['advagg_css_compressor'] = 2;
+ // $conf['advagg_css_compress_inline'] = 2;
 
 
   //advagg js compression
@@ -50,7 +50,7 @@ $conf['authcache_p13n_frontcontroller_path'] = 'authcache.php';
   $conf['advagg_mod_css_adjust_sort_external'] = 1;
   $conf['advagg_mod_css_adjust_sort_inline'] = 1;
   $conf['advagg_mod_css_adjust_sort_browsers'] = 1;
-  $conf['advagg_mod_inline_css_pages'] = '*';
+ $conf['advagg_mod_inline_css_pages'] = '*';
 
 include_once('./sites/all/modules/contrib/fast_404/fast_404.inc');
 $conf['fast_404_exts'] = '/^(?!robots).*\.(txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
