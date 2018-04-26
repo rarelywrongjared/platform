@@ -1,0 +1,103 @@
+; Packaging information for brainstorm profile
+name = "Brainstorm profile"
+description = "Created by ADCI Solutions."
+core = "7.x"
+; ----------
+; Dependencies
+; ----------
+; Administration
+dependencies[] = admin_devel
+dependencies[] = admin_menu
+dependencies[] = admin_menu_toolbar
+; Chaos tool suite
+dependencies[] = ctools
+; Context
+dependencies[] = context
+dependencies[] = context_ui
+; Core
+dependencies[] = block
+dependencies[] = comment
+dependencies[] = contextual
+dependencies[] = dblog
+dependencies[] = field
+dependencies[] = field_sql_storage
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = filter
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = node
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = rdf
+dependencies[] = search
+dependencies[] = shortcut
+dependencies[] = system
+dependencies[] = taxonomy
+dependencies[] = text
+dependencies[] = update
+dependencies[] = user
+; Custom breadcrumbs
+dependencies[] = custom_breadcrumbs
+dependencies[] = custom_breadcrumbs_paths
+dependencies[] = custom_breadcrumbs_views
+dependencies[] = custom_breadcrumbs_features
+; Date/Time
+dependencies[] = date
+dependencies[] = date_api
+dependencies[] = date_views
+; Features extra
+dependencies[] = fe_block
+dependencies[] = fe_date
+; Fields
+dependencies[] = entityreference
+; Node export
+dependencies[] = node_export
+dependencies[] = node_export_features
+; Other
+dependencies[] = addtoany
+dependencies[] = block_class
+dependencies[] = entity
+dependencies[] = entity_token
+dependencies[] = flippy
+dependencies[] = libraries
+dependencies[] = pathauto
+dependencies[] = strongarm
+dependencies[] = token
+; Owl Carousel
+dependencies[] = owlcarousel
+dependencies[] = owlcarousel_fields
+dependencies[] = owlcarousel_ui
+dependencies[] = owlcarousel_views
+; UUID
+dependencies[] = uuid
+; User interface
+dependencies[] = jquery_update
+dependencies[] = responsive_menus
+; Variable
+dependencies[] = variable
+; Views
+dependencies[] = views
+dependencies[] = views_isotope
+dependencies[] = views_isotope_views
+dependencies[] = views_ui
+; Webform
+dependencies[] = webform
+; Features
+dependencies[] = features
+dependencies[] = uuid_features
+dependencies[] = feature_strongarm
+dependencies[] = feature_variables
+dependencies[] = feature_carousel
+dependencies[] = feature_general_content
+dependencies[] = feature_views
+
+; Information added by Drupal.org packaging script on 2018-04-02
+version = "7.x-1.4"
+core = "7.x"
+project = "brainstorm_profile"
+datestamp = "1522641217"
+

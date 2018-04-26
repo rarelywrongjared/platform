@@ -1,0 +1,32 @@
+name = feature_views
+core = 7.x
+package = Features
+dependencies[] = owlcarousel_fields
+dependencies[] = owlcarousel_ui
+dependencies[] = owlcarousel_views
+dependencies[] = views_isotope
+dependencies[] = views_load_more
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = author
+features[views_view][] = blog
+features[views_view][] = clients
+features[views_view][] = columns
+features[views_view][] = isotope_filter_block
+features[views_view][] = main_slider
+features[views_view][] = our_amazing_team
+features[views_view][] = our_core_features
+features[views_view][] = portfolio
+features[views_view][] = portfolio_isotope
+features[views_view][] = test
+features[views_view][] = testimonials
+features_exclude[dependencies][views_isotope_views] = views_isotope_views
+features_exclude[dependencies][fe_block] = fe_block
+features_exclude[dependencies][views] = views
+
+; Information added by Drupal.org packaging script on 2018-04-02
+version = "7.x-1.4"
+core = "7.x"
+project = "brainstorm_profile"
+datestamp = "1522641217"
+

@@ -1,0 +1,39 @@
+name = feature_menu
+core = 7.x
+package = Features
+dependencies[] = features
+dependencies[] = menu
+features[features_api][] = api:2
+features[menu_custom][] = devel
+features[menu_custom][] = features
+features[menu_custom][] = main-menu
+features[menu_custom][] = management
+features[menu_custom][] = navigation
+features[menu_custom][] = user-menu
+features[menu_links][] = devel_nodeaccess-summary:devel/node_access/summary
+features[menu_links][] = main-menu_about-us:node/18
+features[menu_links][] = main-menu_blog:blog
+features[menu_links][] = main-menu_contacts:node/80
+features[menu_links][] = main-menu_home:<front>
+features[menu_links][] = main-menu_portfolio:portfolio
+features[menu_links][] = main-menu_typography:node/20
+features[menu_links][] = management_administration-menu:admin/config/administration/admin_menu
+features[menu_links][] = management_custom-breadcrumbs:admin/structure/custom_breadcrumbs
+features[menu_links][] = management_jquery-update:admin/config/development/jquery_update
+features[menu_links][] = management_main-menu:admin/structure/menu/manage/main-menu
+features[menu_links][] = management_management:admin/structure/menu/manage/management
+features[menu_links][] = management_navigation:admin/structure/menu/manage/navigation
+features[menu_links][] = management_node-export:admin/config/content/node_export
+features[menu_links][] = management_profiler-builder:admin/config/development/profiler_builder
+features[menu_links][] = management_responsive-menus:admin/config/user-interface/responsive_menus
+features[menu_links][] = management_user-menu:admin/structure/menu/manage/user-menu
+features[menu_links][] = management_uuid-features-integration:admin/config/content/uuid_features
+features[menu_links][] = navigation_node-export-import:node/add/node_export
+features[menu_links][] = navigation_portfolio:portfolio
+
+; Information added by Drupal.org packaging script on 2018-04-02
+version = "7.x-1.4"
+core = "7.x"
+project = "brainstorm_profile"
+datestamp = "1522641217"
+

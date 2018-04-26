@@ -1,0 +1,50 @@
+/*
+ * Target IE 6, 7 and 8 (less than IE9)
+ */
+/*
+ * Assuming a mobile first approach with respond.js OFF, we must reset the font
+ * size for lt IE9
+ */
+html {
+  font-size: 81.3%;
+}
+.view-main-slider .active .views-field-field-background-image .field-content,
+.view-main-slider .active .item-0 .views-field-field-main-slider-image .field-content,
+.view-main-slider .active .item-0 .views-field-title,
+.view-main-slider .active .item-0 .views-field-body,
+.view-main-slider .active .item-1 .views-field-field-main-slider-image .field-content,
+.view-main-slider .active .item-1 .views-field-title,
+.view-main-slider .active .item-1 .views-field-body .title-ul,
+#content .view-main-slider .active .item-1 .views-field-body ul,
+.view-main-slider .active .item-2 .views-field-title,
+.view-main-slider .active .item-2 .views-field-body,
+.view-testimonials .owl-item.active {
+  opacity: 1;
+}
+.view-main-slider .views-field-field-background-image {
+  background-color: transparent;
+}
+.view-portfolio-isotope li:hover .views-field-title,
+.view-portfolio td:hover .views-field-title,
+.view-portfolio-isotope li:hover .isotope-filter,
+.view-portfolio td:hover .views-field-field-tags-portfolio {
+  bottom: 55px;
+  opacity: 1;
+}
+.view-isotope-filter-block,
+.view-columns {
+  display: inline-block;
+}
+#content .view-blog .views-field-view-node {
+  margin-left: 30px;
+}
+.field-name-field-portfolio-image img {
+  max-height: none;
+}
+.color-1:before {
+  content: '';
+}
+.color-1:after {
+  left: 20px;
+}
+

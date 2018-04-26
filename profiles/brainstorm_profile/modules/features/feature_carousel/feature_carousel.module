@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the feature_carousel feature.
+ */
+
+include_once 'feature_carousel.features.inc';
